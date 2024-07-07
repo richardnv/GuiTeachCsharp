@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiTeach", "GuiTeach\GuiTea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiTeachTest", "GuiTeachTest\GuiTeachTest.csproj", "{5C594D2A-37AE-47EA-B189-AD3BBCC99D76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiTeachWeb", "GuiTeachWeb\GuiTeachWeb.csproj", "{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{5C594D2A-37AE-47EA-B189-AD3BBCC99D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C594D2A-37AE-47EA-B189-AD3BBCC99D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C594D2A-37AE-47EA-B189-AD3BBCC99D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

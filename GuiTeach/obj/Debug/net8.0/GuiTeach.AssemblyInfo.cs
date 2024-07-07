@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GuiTeach")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9821cb270badc89073f41b9955afed2a981bdb9a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+723dc0ed67ae03a9d5102e89ceff4c76a575eaae")]
 [assembly: System.Reflection.AssemblyProductAttribute("GuiTeach")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GuiTeach")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
