@@ -3,8 +3,8 @@ using System.Linq;
 
 class GuitarNeck
 {
-    private GuitarString[] guitarStrings;
-    
+    public GuitarString[] guitarStrings;
+        
     public GuitarNeck(int numberOfFrets = 24, Tuning? tuning = null)
     {
         if (tuning == null)
@@ -26,15 +26,27 @@ class GuitarNeck
         return notes[midiNumber % 12];
     }
 
-   /* public string GetNoteAtStringAndFret(int gstring, int fret)
+    public string FindClosestStringAndFret(int noteNumber, int? curString = 0, int? curFret = 0)
     {
-        if (gstring < 1 || gstring > 6)
+        if ((curString ?? 0) < 0 || (curString ?? 0) > guitarStrings.Length)
         {
-            throw new Exception("Invalid string number. Must be between 1 and 6.");
+            throw new Exception("Invalid string number. Must be valid.");
         }
-
-        return strings[gstring - 1].Frets[fret].Note;
-    } */
+        
+        while (curString < guitarStrings.Length)
+        {
+            var gstring = guitarStrings[(curString ?? 0)];
+            for (var fret = (curFret ?? 0); fret < gstring.NumberOfFrets; fret++)
+            {
+                if (gstring.Frets[fret].Note.MidiNumber == noteNumber)
+                {
+                    return $"String {curString + 1}, Fret {fret}";
+                }
+            }
+            curString++;
+        }
+        return "Note not found on neck.";
+    }
 
     /* 
     public (int closestString, int closestFret) FindClosestStringAndFret(int startMidiNumber, int targetMidiNumber)

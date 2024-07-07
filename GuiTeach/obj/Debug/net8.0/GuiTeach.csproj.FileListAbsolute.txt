@@ -12,3 +12,4 @@ D:\Source\Repos\GuiTeach\GuiTeach\obj\Debug\net8.0\refint\GuiTeach.dll
 D:\Source\Repos\GuiTeach\GuiTeach\obj\Debug\net8.0\GuiTeach.pdb
 D:\Source\Repos\GuiTeach\GuiTeach\obj\Debug\net8.0\GuiTeach.genruntimeconfig.cache
 D:\Source\Repos\GuiTeach\GuiTeach\obj\Debug\net8.0\ref\GuiTeach.dll
+D:\Source\Repos\GuiTeach\GuiTeach\obj\Debug\net8.0\GuiTeach.sourcelink.json
