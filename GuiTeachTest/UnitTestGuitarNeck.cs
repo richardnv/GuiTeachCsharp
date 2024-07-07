@@ -76,9 +76,33 @@ public class UnitTestGuitarNeck
     }
 
      [Fact]
-    public void Test_find_closest_fingering_Exception()
+    public void Test_find_closest_fingering_invalid_target_note_Midi_Exception()
     {
         var guitarNeck = new GuitarNeck();        
-        Assert.ThrowsAny<Exception>(() => guitarNeck.FindClosestFingering(128, new Fingering(1,0)));      
+        Assert.Throws<GuitarNeck.NotAValidNoteNumberMidiException>(() => guitarNeck.FindClosestFingering(128, new Fingering(1,0)));      
     }
+
+    [Fact]
+    public void Test_find_closest_fingering_invalid_target_note_String_Config_Exception()
+    {
+        var guitarNeck = new GuitarNeck(12);        
+        Assert.Throws<GuitarNeck.NotAValidNoteNumberStringConfigException>(() => guitarNeck.FindClosestFingering(77, new Fingering(2,0)));      
+    }
+
+    [Fact]
+    public void Test_find_closest_fingering_current_fingering_string_Exception()
+    {
+        var guitarNeck = new GuitarNeck();        
+        Assert.Throws<GuitarNeck.NotAValidFingeringStringException>(() => guitarNeck.FindClosestFingering(40, new Fingering(0,0)));      
+    }
+
+    [Fact]
+    public void Test_find_closest_fingering_current_fingering_fret_Exception()
+    {
+        var guitarNeck = new GuitarNeck();        
+        Assert.Throws<GuitarNeck.NotAValidFingeringFretException>(() => guitarNeck.FindClosestFingering(40, new Fingering(1,-1)));      
+        Assert.Throws<GuitarNeck.NotAValidFingeringFretException>(() => guitarNeck.FindClosestFingering(40, new Fingering(1,45)));      
+    }
+
+    
 }
