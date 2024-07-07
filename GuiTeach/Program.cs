@@ -15,6 +15,16 @@ while (true)
         break;    
     }
 
-    Console.WriteLine($"The note name for midi number {midiNumber} is {guitarNeck.MidiNumberToNoteName(midiNumber)}.");
-    Console.WriteLine($"The closest string and fret for midi number {midiNumber} is {guitarNeck.FindClosestFingering(midiNumber, new Fingering(1,3))}");
+    Console.WriteLine($"The note spelling for that midi number {midiNumber} is {guitarNeck.MidiNumberToNoteSpelling(midiNumber)}.");
+
+    var curFingering = new Fingering(1, 0);
+    var newFingering = new Fingering(1, 0);
+    try {
+        newFingering = guitarNeck.FindClosestFingering(midiNumber, curFingering);
+        Console.WriteLine($"The closest string and fret where this note can be played on a std tuning guitar at String: {newFingering.String}, Fret: {newFingering.Fret}.");
+    } catch (Exception e) {
+        Console.WriteLine(e.Message);            
+    }
+    
+    
 }

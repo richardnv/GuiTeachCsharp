@@ -34,6 +34,13 @@ public class GuitarNeck
         return notes[midiNumber % 12];
     }
 
+    public string MidiNumberToNoteSpelling(int midiNumber)
+    {
+        var notes = new[] { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
+        var result = notes[midiNumber % 12] + (midiNumber / 12 - 1);
+        return result;
+    }
+
     public Fingering FindClosestFingering(int noteNumber, Fingering currentFingering)
     {
         // Assuming 'currentFingering' is defined and represents the current position
@@ -45,7 +52,7 @@ public class GuitarNeck
             throw new NotAValidFingeringStringException(currentFingering, guitarStrings.Length);
         }
 
-        if (currentFingering.Fret < 0 || currentFingering.Fret > guitarStrings[currentFingering.String-1].NumberOfFrets)
+        if (currentFingering.Fret < 0 || currentFingering.Fret > guitarStrings[guitarStrings.Length - 1].NumberOfFrets)
         {
             throw new NotAValidFingeringFretException(currentFingering, guitarStrings[currentFingering.String-1].NumberOfFrets);
         }
@@ -57,23 +64,23 @@ public class GuitarNeck
         } 
 
         // Is the target note number within the range of the current string configuration?
-        if (noteNumber < guitarStrings[currentFingering.String-1].Frets[0].Note.MidiNumber || 
-            noteNumber > guitarStrings[currentFingering.String-1].Frets[guitarStrings[currentFingering
-                .String-1].NumberOfFrets].Note.MidiNumber)
+        if (noteNumber < guitarStrings[0].Frets[0].Note.MidiNumber || 
+            noteNumber > guitarStrings[guitarStrings.Length - 1].Frets[guitarStrings[guitarStrings.Length - 1].NumberOfFrets].Note.MidiNumber)
         {
             throw new NotAValidNoteNumberStringConfigException(noteNumber, currentFingering.String, 
-                guitarStrings[currentFingering.String-1].Frets[0].Note.MidiNumber, 
-                guitarStrings[currentFingering.String-1].Frets[guitarStrings[currentFingering.String-1]
+                guitarStrings[0].Frets[0].Note.MidiNumber, 
+                guitarStrings[guitarStrings.Length -1].Frets[guitarStrings[guitarStrings.Length -1]
                     .NumberOfFrets].Note.MidiNumber);
         }
 
         for (int s = 0; s < guitarStrings.Length; s++)
         {
-            for (int fret = 0; fret < guitarStrings[s].NumberOfFrets; fret++)
+
+            for (int fret = 0; fret <= guitarStrings[s].NumberOfFrets; fret++)
             {
                 if (guitarStrings[s].Frets[fret].Note.MidiNumber == noteNumber)
                 {
-                    int distance = Math.Abs(currentFingering.String - (s + 1)) + Math.Abs(currentFingering.Fret - fret);
+                    int distance = Math.Abs(currentFingering.String - s) + Math.Abs(currentFingering.Fret - fret);
                     if (distance < minDistance)
                     {
                         minDistance = distance;
