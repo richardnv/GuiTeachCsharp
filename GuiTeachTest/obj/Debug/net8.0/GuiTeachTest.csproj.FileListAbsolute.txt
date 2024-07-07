@@ -103,3 +103,4 @@ D:\Source\Repos\GuiTeach\GuiTeachTest\obj\Debug\net8.0\refint\GuiTeachTest.dll
 D:\Source\Repos\GuiTeach\GuiTeachTest\obj\Debug\net8.0\GuiTeachTest.pdb
 D:\Source\Repos\GuiTeach\GuiTeachTest\obj\Debug\net8.0\GuiTeachTest.genruntimeconfig.cache
 D:\Source\Repos\GuiTeach\GuiTeachTest\obj\Debug\net8.0\ref\GuiTeachTest.dll
+D:\Source\Repos\GuiTeach\GuiTeachTest\obj\Debug\net8.0\GuiTeachTest.sourcelink.json

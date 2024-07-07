@@ -16,5 +16,5 @@ while (true)
     }
 
     Console.WriteLine($"The note name for midi number {midiNumber} is {guitarNeck.MidiNumberToNoteName(midiNumber)}.");
-    Console.WriteLine($"The closest string and fret for midi number {midiNumber} is {guitarNeck.FindClosestStringAndFret(midiNumber, 0, 3)}.");
+    Console.WriteLine($"The closest string and fret for midi number {midiNumber} is {guitarNeck.FindClosestFingering(midiNumber, new Fingering(1,3))}");
 }

@@ -39,7 +39,7 @@ public class UnitTestGuitarNeck
     [Fact]
     public void Test_create_std_GuitarString()
     {
-        var guitarString = new GuitarString(40);
+        var guitarString = new GuitarString(40,1,24);
         Assert.Equal(24, guitarString.NumberOfFrets);
         Assert.Equal(40, guitarString.Frets[0].Note.MidiNumber);
         Assert.Equal("E", guitarString.Frets[0].Note.NoteName);
@@ -67,4 +67,18 @@ public class UnitTestGuitarNeck
         Assert.ThrowsAny<Exception>(() => new GuitarString(100, 28)); 
     }
     
+    [Fact]
+    public void Test_find_closest_fingering()
+    {
+        var guitarNeck = new GuitarNeck();
+        var result = guitarNeck.FindClosestFingering(48, new Fingering(1,0));
+        Assert.Equal(new Fingering(2,3), result);      
+    }
+
+     [Fact]
+    public void Test_find_closest_fingering_Exception()
+    {
+        var guitarNeck = new GuitarNeck();        
+        Assert.ThrowsAny<Exception>(() => guitarNeck.FindClosestFingering(128, new Fingering(1,0)));      
+    }
 }

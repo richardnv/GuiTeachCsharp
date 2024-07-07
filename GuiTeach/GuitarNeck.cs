@@ -1,23 +1,32 @@
 using System;
 using System.Linq;
 
-class GuitarNeck
+public class GuitarNeck
 {
     public GuitarString[] guitarStrings;
         
     public GuitarNeck(int numberOfFrets = 24, Tuning? tuning = null)
-    {
+    {        
         if (tuning == null)
         {
             tuning = new Tuning();
         }       
-
+    
         if (numberOfFrets < 1 || numberOfFrets > 32)
         {
             throw new Exception("Number of frets must be between 1 and 32.");
         }
-        guitarStrings = tuning.MidiNumbers.Select(mn => new GuitarString(mn, numberOfFrets)).ToArray();
-        
+    
+        guitarStrings = new GuitarString[tuning.MidiNumbers.Length]; // Initialize the guitarStrings field
+    
+        for (var i = 0; i < tuning.MidiNumbers.Length; i++)
+        {
+            if (tuning.MidiNumbers[i] < 0 || tuning.MidiNumbers[i] > 127)
+            {
+                throw new Exception("Midi number must be between 0 and 127.");
+            }
+            guitarStrings[i] = new GuitarString(tuning.MidiNumbers[i], i+1, numberOfFrets);
+        }                
     }
 
     public string MidiNumberToNoteName(int midiNumber)
@@ -26,65 +35,45 @@ class GuitarNeck
         return notes[midiNumber % 12];
     }
 
-    public string FindClosestStringAndFret(int noteNumber, int? curString = 0, int? curFret = 0)
+    public Fingering FindClosestFingering(int noteNumber, Fingering currentFingering)
     {
-        if ((curString ?? 0) < 0 || (curString ?? 0) > guitarStrings.Length)
+        // Assuming 'currentFingering' is defined and represents the current position
+        Fingering closestFingering = new Fingering(1, 0); // Replace null with a default Fingering object
+        int minDistance = int.MaxValue; // Initialize with the maximum possible value
+
+        // ToDo: Implement the logic to throw new Exception ("Not a valid Fingering")
+        // Todo: Implement the logic to throw new Exception ("Not a valid Note Number")
+
+        for (int s = 0; s < guitarStrings.Length; s++)
         {
-            throw new Exception("Invalid string number. Must be valid.");
-        }
-        
-        while (curString < guitarStrings.Length)
-        {
-            var gstring = guitarStrings[(curString ?? 0)];
-            for (var fret = (curFret ?? 0); fret < gstring.NumberOfFrets; fret++)
+            for (int fret = 0; fret < guitarStrings[s].NumberOfFrets; fret++)
             {
-                if (gstring.Frets[fret].Note.MidiNumber == noteNumber)
+                if (guitarStrings[s].Frets[fret].Note.MidiNumber == noteNumber)
                 {
-                    return $"String {curString + 1}, Fret {fret}";
+                    int distance = Math.Abs(currentFingering.String - (s + 1)) + Math.Abs(currentFingering.Fret - fret);
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        closestFingering = new Fingering(s + 1, fret);
+                    }
                 }
             }
-            curString++;
         }
-        return "Note not found on neck.";
+
+        return closestFingering;
     }
-
-    /* 
-    public (int closestString, int closestFret) FindClosestStringAndFret(int startMidiNumber, int targetMidiNumber)
-    {
-        var closestDistance = int.MaxValue;
-        var closestString = -1;
-        var closestFret = -1;
-
-        foreach (var (gstring, stringIndex) in strings.Select((gstring, index) => (gstring, index)))
-        {
-            var fretDistance = targetMidiNumber - gstring.OpenNoteMidiNumber;
-            if (fretDistance >= 0 && fretDistance < closestDistance)
-            {
-                var startFretDistance = startMidiNumber - gstring.OpenNoteMidiNumber;
-                if (startFretDistance <= fretDistance)
-                {
-                    closestDistance = fretDistance;
-                    closestString = stringIndex + 1; // Adjusting index to match string numbering
-                    closestFret = fretDistance;
-                }
-            }
-        }
-
-        return (closestString, closestFret);
-    }    */
 }
 
 public class GuitarString
 {
+    public int StringNumber { get; }    
     public GuitarFret[] Frets { get; }
     public int NumberOfFrets => Frets.Length - 1;
+    public string OpenNoteSpelling => Frets[0].Note.NoteSpelling;
 
-    public GuitarString(int midiNumber, int numberOfFrets = 24)
+    public GuitarString(int midiNumber, int stringNumber, int numberOfFrets)
     {       
-        if (midiNumber < 0 || midiNumber > 127)
-        {
-            throw new Exception("Midi number must be between 0 and 127.");
-        }
+        StringNumber = stringNumber;
 
         try 
         {
@@ -96,10 +85,49 @@ public class GuitarString
             }
 
         } catch (Exception e) {
-            Console.WriteLine("MidiNumber + NumberOfFrets exceeds 129: " + e.Message);
-            throw new Exception("MidiNumber + NumberOfFrets exceeds 129: " + e.Message);
-        }
-        
+            var msg = "MidiNumber + NumberOfFrets exceeds 129: " + e.Message;
+            Console.WriteLine(msg);
+            throw new Exception(msg);
+        }        
+    }    
+    public GuitarString(int midiNumber, int numberOfFrets)
+    {       
+            StringNumber = 1;
+
+            try 
+            {
+                Frets = new GuitarFret[numberOfFrets + 1];
+                Frets[0] = new GuitarFret(midiNumber);
+                for (var i = 1; i < numberOfFrets + 1; i++)
+                {
+                    Frets[i] = new GuitarFret(midiNumber + i);
+                }
+
+            } catch (Exception e) {
+                var msg = "MidiNumber + NumberOfFrets exceeds 129: " + e.Message;
+                Console.WriteLine(msg);
+                throw new Exception(msg);
+            }        
+    }    
+    public GuitarString(int midiNumber)
+    {       
+        StringNumber = 1;        
+        var numberOfFrets = 24;
+
+        try 
+        {
+            Frets = new GuitarFret[numberOfFrets + 1];
+            Frets[0] = new GuitarFret(midiNumber);
+            for (var i = 1; i < numberOfFrets + 1; i++)
+            {
+                Frets[i] = new GuitarFret(midiNumber + i);
+            }
+
+        } catch (Exception e) {
+            var msg = "MidiNumber + NumberOfFrets exceeds 129: " + e.Message;
+            Console.WriteLine(msg);
+            throw new Exception(msg);
+        }        
     }    
 }
 
@@ -122,6 +150,7 @@ public class MidiNote
     public int MidiNumber { get; }
     public string NoteName { get; }
     public int Octave { get; }
+    public string NoteSpelling => $"{NoteName}{Octave}";
 
     public MidiNote(int midiNumber)
     {
