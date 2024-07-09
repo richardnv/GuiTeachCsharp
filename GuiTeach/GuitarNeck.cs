@@ -11,9 +11,9 @@ public class GuitarNeck
             tuning = new Tuning();
         }       
     
-        if (numberOfFrets < 1 || numberOfFrets > 32)
+        if (numberOfFrets < 1 || numberOfFrets > 36)
         {
-            throw new Exception("Number of frets must be between 1 and 32.");
+            throw new Exception("Number of frets must be between 1 and 36.");
         }
     
         guitarStrings = new GuitarString[tuning.MidiNumbers.Length]; // Initialize the guitarStrings field
@@ -91,6 +91,21 @@ public class GuitarNeck
         }
 
         return closestFingering;
+    }
+
+    public MidiNote FingeringToMidiNote(Fingering fingering)
+    {
+        if (fingering.String < 1 || fingering.String > guitarStrings.Length)
+        {
+            throw new NotAValidFingeringStringException(fingering, guitarStrings.Length);
+        }
+
+        if (fingering.Fret < 0 || fingering.Fret > guitarStrings[guitarStrings.Length - 1].NumberOfFrets)
+        {
+            throw new NotAValidFingeringFretException(fingering, guitarStrings[guitarStrings.Length - 1].NumberOfFrets);
+        }
+
+        return guitarStrings[fingering.String - 1].Frets[fingering.Fret].Note;
     }
 
     // Custom Exceptions for Geuitar Neck

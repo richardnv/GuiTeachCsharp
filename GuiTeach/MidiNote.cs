@@ -23,4 +23,20 @@ public class MidiNote
     {
         return (midiNumber / 12) - 1;
     }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        var other = (MidiNote)obj;
+        return MidiNumber == other.MidiNumber;
+    }    
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(MidiNumber, NoteName, Octave);
+    }
 }
