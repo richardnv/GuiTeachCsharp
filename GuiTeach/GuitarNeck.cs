@@ -1,4 +1,8 @@
 using System;
+using System.Text.Json;
+using JsonSer = System.Text.Json.JsonSerializer;
+
+namespace GuiTeach;
 
 public class GuitarNeck
 {
@@ -26,6 +30,16 @@ public class GuitarNeck
             }
             guitarStrings[i] = new GuitarString(tuning.MidiNumbers[i], i+1, numberOfFrets);
         }                
+    }
+
+    public int[] GetTuning()
+    {
+        int[] result = new int[guitarStrings.Length]; 
+        foreach (var guitarString in guitarStrings)
+        {
+            result.Append(guitarString.Frets[0].Note.MidiNumber);                        
+        }        
+        return result;
     }
 
     public string MidiNumberToNoteName(int midiNumber)

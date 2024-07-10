@@ -1,3 +1,5 @@
+namespace GuiTeach;
+
 public class GuitarString
 {
     public int StringNumber { get; }    

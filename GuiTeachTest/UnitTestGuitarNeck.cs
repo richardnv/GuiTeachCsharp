@@ -1,5 +1,6 @@
 using System.Configuration.Assemblies;
 using System.Runtime.CompilerServices;
+using GuiTeach;
 
 namespace GuiTeachTest;
 

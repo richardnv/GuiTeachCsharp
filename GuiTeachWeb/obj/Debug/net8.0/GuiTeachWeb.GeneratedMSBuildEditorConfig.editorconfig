@@ -9,39 +9,39 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GuiTeachWeb
 build_property.RootNamespace = GuiTeachWeb
-build_property.ProjectDir = D:\Source\Repos\GuiTeach\GuiteachWeb\
+build_property.ProjectDir = D:\Source\Repos\GuiTeach\GuiTeachWeb\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Source\Repos\GuiTeach\GuiteachWeb
+build_property.MSBuildProjectDirectory = D:\Source\Repos\GuiTeach\GuiTeachWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Source/Repos/GuiTeach/GuiteachWeb/Views/Home/Index.cshtml]
+[D:/Source/Repos/GuiTeach/GuiTeachWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Source/Repos/GuiTeach/GuiteachWeb/Views/Home/Privacy.cshtml]
+[D:/Source/Repos/GuiTeach/GuiTeachWeb/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Source/Repos/GuiTeach/GuiteachWeb/Views/Shared/Error.cshtml]
+[D:/Source/Repos/GuiTeach/GuiTeachWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Source/Repos/GuiTeach/GuiteachWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Source/Repos/GuiTeach/GuiTeachWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Source/Repos/GuiTeach/GuiteachWeb/Views/_ViewImports.cshtml]
+[D:/Source/Repos/GuiTeach/GuiTeachWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Source/Repos/GuiTeach/GuiteachWeb/Views/_ViewStart.cshtml]
+[D:/Source/Repos/GuiTeach/GuiTeachWeb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Source/Repos/GuiTeach/GuiteachWeb/Views/Shared/_Layout.cshtml]
+[D:/Source/Repos/GuiTeach/GuiTeachWeb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1qhsx79c50

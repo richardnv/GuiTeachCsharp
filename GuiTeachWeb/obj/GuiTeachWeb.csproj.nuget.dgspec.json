@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source\\Repos\\GuiTeach\\GuiteachWeb\\GuiTeachWeb.csproj": {}
+    "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\GuiTeachWeb.csproj": {}
   },
   "projects": {
-    "D:\\Source\\Repos\\GuiTeach\\GuiteachWeb\\GuiTeachWeb.csproj": {
+    "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\GuiTeachWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source\\Repos\\GuiTeach\\GuiteachWeb\\GuiTeachWeb.csproj",
+        "projectUniqueName": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\GuiTeachWeb.csproj",
         "projectName": "GuiTeachWeb",
-        "projectPath": "D:\\Source\\Repos\\GuiTeach\\GuiteachWeb\\GuiTeachWeb.csproj",
+        "projectPath": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\GuiTeachWeb.csproj",
         "packagesPath": "C:\\Users\\richa\\.nuget\\packages\\",
-        "outputPath": "D:\\Source\\Repos\\GuiTeach\\GuiteachWeb\\obj\\",
+        "outputPath": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,3 +1,4 @@
+namespace GuiTeach;
 
 public class MidiNote
 {

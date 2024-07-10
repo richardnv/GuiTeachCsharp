@@ -1,3 +1,5 @@
+namespace GuiTeach;
+
 public class Tuning
 {
     public string Name { get; } 

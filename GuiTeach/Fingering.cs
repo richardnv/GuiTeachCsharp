@@ -1,3 +1,4 @@
+namespace GuiTeach;
 public class Fingering
 {
     public int String { get; }

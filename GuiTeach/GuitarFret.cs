@@ -1,3 +1,4 @@
+namespace GuiTeach;
 public class GuitarFret
 {
     public MidiNote Note { get; }
