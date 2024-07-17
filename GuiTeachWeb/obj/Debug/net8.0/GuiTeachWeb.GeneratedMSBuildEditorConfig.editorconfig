@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Source\GuiTeachCSharp\GuiTeachCsharp\GuiTeachWeb
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Source/GuiTeachCSharp/GuiTeachCsharp/GuiTeachWeb/Views/Home/GuitarNeck.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHdWl0YXJOZWNrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Source/GuiTeachCSharp/GuiTeachCsharp/GuiTeachWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

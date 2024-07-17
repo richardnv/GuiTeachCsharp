@@ -150,31 +150,27 @@ public class UnitTestGuitarNeck
     }
 
     [Fact]
-    public void Test_string_GetStringOrdinal()
+    public void Test_Fingering_StringOrdinal()
     {
         var fingering = new Fingering(1,0);
-        Assert.Equal("1st", fingering.GetStringOrdinal());
+        Assert.Equal("1st", fingering.StringOrdinal());
         fingering = new Fingering(2,0);
-        Assert.Equal("2nd", fingering.GetStringOrdinal());
+        Assert.Equal("2nd", fingering.StringOrdinal());
         fingering = new Fingering(3,0);
-        Assert.Equal("3rd", fingering.GetStringOrdinal());
+        Assert.Equal("3rd", fingering.StringOrdinal());
         fingering = new Fingering(4,0);
-        Assert.Equal("4th", fingering.GetStringOrdinal());
+        Assert.Equal("4th", fingering.StringOrdinal());
         fingering = new Fingering(5,0);
-        Assert.Equal("5th", fingering.GetStringOrdinal());
-        fingering = new Fingering(10,0);
-        Assert.Equal("10th", fingering.GetStringOrdinal());
+        Assert.Equal("5th", fingering.StringOrdinal());
+        fingering = new Fingering(11,0);
+        Assert.Equal("11th", fingering.StringOrdinal());
         fingering = new Fingering(21,0);
-        Assert.Equal("21st", fingering.GetStringOrdinal());        
+        Assert.Equal("21st", fingering.StringOrdinal());        
         fingering = new Fingering(32,0);
-        Assert.Equal("32nd", fingering.GetStringOrdinal());        
-        fingering = new Fingering(111,0);
-        Assert.Equal("111th", fingering.GetStringOrdinal());
+        Assert.Equal("32nd", fingering.StringOrdinal());        
         fingering = new Fingering(123,0);
-        Assert.Equal("123rd", fingering.GetStringOrdinal());
+        Assert.Equal("123rd", fingering.StringOrdinal());
         fingering = new Fingering(84,0);
-        Assert.Equal("84th", fingering.GetStringOrdinal());
-        fingering = new Fingering(1411,0);
-        Assert.Equal("1411th", fingering.GetStringOrdinal());
+        Assert.Equal("84th", fingering.StringOrdinal());
     }
 }

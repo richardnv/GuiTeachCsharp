@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GuiTeachWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5e6337ff19c65e9bb561595c2ef0af9c6d26359")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4aeed743c89f73a08372ab5f82eadc3e4091168e")]
 [assembly: System.Reflection.AssemblyProductAttribute("GuiTeachWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GuiTeachWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
