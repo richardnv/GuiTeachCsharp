@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\GuiTeachWeb.csproj": {}
+    "D:\\Source\\GuiTeachCSharp\\GuiTeachCsharp\\GuiTeachWeb\\GuiTeachWeb.csproj": {}
   },
   "projects": {
-    "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\GuiTeachWeb.csproj": {
+    "D:\\Source\\GuiTeachCSharp\\GuiTeachCsharp\\GuiTeachWeb\\GuiTeachWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\GuiTeachWeb.csproj",
+        "projectUniqueName": "D:\\Source\\GuiTeachCSharp\\GuiTeachCsharp\\GuiTeachWeb\\GuiTeachWeb.csproj",
         "projectName": "GuiTeachWeb",
-        "projectPath": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\GuiTeachWeb.csproj",
-        "packagesPath": "C:\\Users\\richa\\.nuget\\packages\\",
-        "outputPath": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\obj\\",
+        "projectPath": "D:\\Source\\GuiTeachCSharp\\GuiTeachCsharp\\GuiTeachWeb\\GuiTeachWeb.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\GuiTeachCSharp\\GuiTeachCsharp\\GuiTeachWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\richa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

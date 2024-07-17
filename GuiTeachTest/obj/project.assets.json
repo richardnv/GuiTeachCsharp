@@ -5524,23 +5524,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\richa\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Source\\Repos\\GuiTeach\\GuiTeachTest\\GuiTeachTest.csproj",
+      "projectUniqueName": "D:\\Source\\GuiTeachCSharp\\GuiTeachCsharp\\GuiTeachTest\\GuiTeachTest.csproj",
       "projectName": "GuiTeachTest",
-      "projectPath": "D:\\Source\\Repos\\GuiTeach\\GuiTeachTest\\GuiTeachTest.csproj",
-      "packagesPath": "C:\\Users\\richa\\.nuget\\packages\\",
-      "outputPath": "D:\\Source\\Repos\\GuiTeach\\GuiTeachTest\\obj\\",
+      "projectPath": "D:\\Source\\GuiTeachCSharp\\GuiTeachCsharp\\GuiTeachTest\\GuiTeachTest.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\Source\\GuiTeachCSharp\\GuiTeachCsharp\\GuiTeachTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\richa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5556,8 +5556,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Source\\Repos\\GuiTeach\\GuiTeach\\GuiTeach.csproj": {
-              "projectPath": "D:\\Source\\Repos\\GuiTeach\\GuiTeach\\GuiTeach.csproj"
+            "D:\\Source\\GuiTeachCSharp\\GuiTeachCsharp\\GuiTeach\\GuiTeach.csproj": {
+              "projectPath": "D:\\Source\\GuiTeachCSharp\\GuiTeachCsharp\\GuiTeach\\GuiTeach.csproj"
             }
           }
         }
@@ -5610,7 +5610,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
