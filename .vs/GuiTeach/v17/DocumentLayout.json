@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Source\\Repos\\GuiTeach\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}|GuiTeachWeb\\GuiTeachWeb.csproj|d:\\source\\repos\\guiteach\\guiteachweb\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}|GuiTeachWeb\\GuiTeachWeb.csproj|solutionrelative:guiteachweb\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}|GuiTeachWeb\\GuiTeachWeb.csproj|d:\\source\\repos\\guiteach\\guiteachweb\\wwwroot\\js\\guitarneck.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}|GuiTeachWeb\\GuiTeachWeb.csproj|solutionrelative:guiteachweb\\wwwroot\\js\\guitarneck.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}|GuiTeachWeb\\GuiTeachWeb.csproj|d:\\source\\repos\\guiteach\\guiteachweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{15E94CA4-3F91-4D2D-A7CE-81C1E4001BC0}|GuiTeachWeb\\GuiTeachWeb.csproj|solutionrelative:guiteachweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "guitarneck.js",
+              "DocumentMoniker": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\wwwroot\\js\\guitarneck.js",
+              "RelativeDocumentMoniker": "GuiTeachWeb\\wwwroot\\js\\guitarneck.js",
+              "ToolTip": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\wwwroot\\js\\guitarneck.js",
+              "RelativeToolTip": "GuiTeachWeb\\wwwroot\\js\\guitarneck.js",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAYwG0AAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-07-11T19:45:56.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "GuiTeachWeb\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "GuiTeachWeb\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAADAAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-11T19:42:46.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "GuiTeachWeb\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "GuiTeachWeb\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-11T19:17:47.22Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

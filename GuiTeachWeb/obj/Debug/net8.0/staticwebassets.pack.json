@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\wwwroot\\js\\guitarneck.js",
+      "PackagePath": "staticwebassets\\js\\guitarneck.js"
+    },
+    {
       "Id": "D:\\Source\\Repos\\GuiTeach\\GuiTeachWeb\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
