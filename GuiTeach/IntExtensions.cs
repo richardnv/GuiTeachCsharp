@@ -2,9 +2,9 @@ using System.ComponentModel;
 
 namespace GuiTeach;
 
-public class Utility
+public static class IntExtensions
 {
-    public static string Get_Ordinal(int number)
+    public static string ToOrdinal(this int number)
     {
         if (number < 1)
         {

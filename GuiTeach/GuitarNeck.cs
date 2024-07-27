@@ -3,178 +3,167 @@ using System.Text.Json;
 using JsonSer = System.Text.Json.JsonSerializer;
 
 namespace GuiTeach;
-
 public class GuitarNeck
 {
-    public GuitarString[] guitarStrings;
-        
-    public GuitarNeck(int numberOfFrets = 24, Tuning? tuning = null)
-    {        
-        if (tuning == null)
+    private GuitarString[] guitarStrings;
+    private Tuning DefaultTuning = new Tuning();
+    private int DefaultNumberOfFrets = 24;
+
+    // Overloaded constructors
+    /// <summary>
+    /// Creates a GuitarNeck with the passed tuning and number of frets.
+    /// String count is determined by the number of MidiNumbers in the tuning.
+    /// </summary>
+    /// <param name="tuning"></param>
+    /// <param name="numberOfFrets"></param>
+    public GuitarNeck(Tuning tuning, int numberOfFrets)
+    {
+        guitarStrings = new GuitarString[tuning.MidiNumbers.Length];
+        for (int i = 0; i < tuning.MidiNumbers.Length; i++)
         {
-            tuning = new Tuning();
-        }       
-    
-        if (numberOfFrets < 1 || numberOfFrets > 36)
-        {
-            throw new Exception("Number of frets must be between 1 and 36.");
+            guitarStrings[i] = new GuitarString(tuning.MidiNumbers[i], i, numberOfFrets);
         }
-    
-        guitarStrings = new GuitarString[tuning.MidiNumbers.Length]; // Initialize the guitarStrings field
-    
-        for (var i = 0; i < tuning.MidiNumbers.Length; i++)
+    }
+
+    /// <summary>
+    /// Creates a GuitarNeck with the Default Tuning
+    /// and the passed number of frets.
+    /// </summary>
+    /// <param name="numberOfFrets"></param>
+    public GuitarNeck(int numberOfFrets)
+    {        
+        guitarStrings = new GuitarString[DefaultTuning.MidiNumbers.Length];
+        for (int i = 0; i < DefaultTuning.MidiNumbers.Length; i++)
         {
-            if (tuning.MidiNumbers[i] < 0 || tuning.MidiNumbers[i] > 127)
-            {
-                throw new Exception("Midi number must be between 0 and 127.");
-            }
-            guitarStrings[i] = new GuitarString(tuning.MidiNumbers[i], i+1, numberOfFrets);
-        }                
+            guitarStrings[i] = new GuitarString(DefaultTuning.MidiNumbers[i], i, numberOfFrets);
+        }
     }
-
-    public int[] GetTuning()
-    {
-        int[] result = new int[guitarStrings.Length]; 
-        foreach (var guitarString in guitarStrings)
+    
+    /// <summary>
+    /// Creates a GuitarNeck with the passed Tuning
+    /// and the Default number of frets.
+    /// </summary>
+    /// <param name="tuning"></param>
+    public GuitarNeck(Tuning tuning)
+    {        
+        guitarStrings = new GuitarString[tuning.MidiNumbers.Length];
+        for (int i = 0; i < tuning.MidiNumbers.Length; i++)
         {
-            result.Append(guitarString.Frets[0].Note.MidiNumber);                        
-        }        
-        return result;
+            guitarStrings[i] = new GuitarString(tuning.MidiNumbers[i], i, DefaultNumberOfFrets);
+        }
     }
 
-    public string MidiNumberToNoteName(int midiNumber)
-    {
-        var notes = new[] { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
-        return notes[midiNumber % 12];
+    /// <summary>
+    /// Creates a GuitarNeck with the Default Tuning
+    /// and the Default number of frets.
+    /// </summary>
+    public GuitarNeck()
+    {        
+        Tuning DefaultTuning = new Tuning();
+        guitarStrings = new GuitarString[DefaultTuning.MidiNumbers.Length];
+        for (int i = 0; i < DefaultTuning.MidiNumbers.Length; i++)
+        {
+            guitarStrings[i] = new GuitarString(DefaultTuning.MidiNumbers[i], i, DefaultNumberOfFrets);
+        }
     }
 
-    public string MidiNumberToNoteSpelling(int midiNumber)
+    public Fingering FindClosestFingering(int targetMidiNumber, Fingering currentFingering)
     {
-        var notes = new[] { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
-        var result = notes[midiNumber % 12] + (midiNumber / 12 - 1);
-        return result;
-    }
-
-    public Fingering FindClosestFingering(int noteNumber, Fingering currentFingering)
-    {
-        // Assuming 'currentFingering' is defined and represents the current position
-        Fingering closestFingering = new Fingering(1, 0); // Replace null with a default Fingering object
-        int minDistance = int.MaxValue; // Initialize with the maximum possible value
-
-        if (currentFingering.StringNumber < 1 || currentFingering.StringNumber > guitarStrings.Length)
+        // Assuming the method starts here...
+        if (targetMidiNumber < 0 || targetMidiNumber > 127)
+        {
+            throw new NotAValidNoteNumberMidiException(targetMidiNumber);
+        }
+        if (currentFingering.StringIndex < 0 || currentFingering.StringIndex >= guitarStrings.Length)
         {
             throw new NotAValidFingeringStringException(currentFingering, guitarStrings.Length);
         }
-
-        if (currentFingering.FretNumber < 0 || currentFingering.FretNumber > guitarStrings[guitarStrings.Length - 1].NumberOfFrets)
+        if (currentFingering.FretNumber < 0 || currentFingering.FretNumber > guitarStrings[currentFingering.StringIndex].NumberOfFrets)
         {
-            throw new NotAValidFingeringFretException(currentFingering, guitarStrings[currentFingering.StringNumber-1].NumberOfFrets);
+            throw new NotAValidFingeringFretException(currentFingering, guitarStrings[currentFingering.StringIndex].NumberOfFrets);
         }
 
-        // Is the target note number within the Midi range?
-        if (noteNumber < 0 || noteNumber > 127)
-        {
-            throw new NotAValidNoteNumberMidiException(noteNumber);
-        } 
-
-        // Is the target note number within the range of the current string configuration?
-        if (noteNumber < guitarStrings[0].Frets[0].Note.MidiNumber || 
-            noteNumber > guitarStrings[guitarStrings.Length - 1].Frets[guitarStrings[guitarStrings.Length - 1].NumberOfFrets].Note.MidiNumber)
-        {
-            throw new NotAValidNoteNumberStringConfigException(noteNumber, currentFingering.StringNumber, 
-                guitarStrings[0].Frets[0].Note.MidiNumber, 
-                guitarStrings[guitarStrings.Length -1].Frets[guitarStrings[guitarStrings.Length -1]
-                    .NumberOfFrets].Note.MidiNumber);
-        }
+        int minDistance = int.MaxValue;        
+        Fingering closestFingering = new Fingering(0, 0); // Initialize with default values
 
         for (int s = 0; s < guitarStrings.Length; s++)
         {
-
             for (int fret = 0; fret <= guitarStrings[s].NumberOfFrets; fret++)
             {
-                if (guitarStrings[s].Frets[fret].Note.MidiNumber == noteNumber)
-                {
-                    int distance = Math.Abs(currentFingering.StringNumber - s) + Math.Abs(currentFingering.FretNumber - fret);
-                    if (distance < minDistance)
+                if (guitarStrings[s].Frets[fret].Note.MidiNumber == targetMidiNumber)
+                {                       
+                    int measuredDistance = CalculateDistance(currentFingering, new Fingering(s, fret));
+                    if (measuredDistance < minDistance)
                     {
-                        minDistance = distance;
-                        closestFingering = new Fingering(s + 1, fret);
+                        minDistance = measuredDistance;
+                        closestFingering = new Fingering(s, fret);
                     }
-                }
+                }             
             }
         }
 
         return closestFingering;
     }
 
+    /// <summary>
+    /// Converts a Fingering to a MidiNote.
+    /// </summary>
+    /// <param name="fingering">The fingering to convert.</param>
+    /// <returns>The corresponding MidiNote.</returns>
+    /// <exception cref="NotAValidFingeringStringException">Thrown when the string index is invalid.</exception>
+    /// <exception cref="NotAValidFingeringFretException">Thrown when the fret number is invalid.</exception>
     public MidiNote FingeringToMidiNote(Fingering fingering)
     {
-        if (fingering.StringNumber < 1 || fingering.StringNumber > guitarStrings.Length)
+        const int MinIndex = 0;
+        const int MinFretNumber = 0;
+
+        if (fingering.StringIndex < MinIndex || fingering.StringIndex >= guitarStrings.Length - 1)
         {
             throw new NotAValidFingeringStringException(fingering, guitarStrings.Length);
         }
 
-        if (fingering.FretNumber < 0 || fingering.FretNumber > guitarStrings[guitarStrings.Length - 1].NumberOfFrets)
+        if (fingering.FretNumber < MinFretNumber || fingering.FretNumber > guitarStrings[fingering.StringIndex].NumberOfFrets)
         {
-            throw new NotAValidFingeringFretException(fingering, guitarStrings[guitarStrings.Length - 1].NumberOfFrets);
+            throw new NotAValidFingeringFretException(fingering, guitarStrings[fingering.StringIndex].NumberOfFrets);
         }
 
-        return guitarStrings[fingering.StringNumber - 1].Frets[fingering.FretNumber].Note;
+        return guitarStrings[fingering.StringIndex].Frets[fingering.FretNumber].Note;
     }
 
-    // Custom Exceptions for Geuitar Neck
-    public class NotAValidFingeringStringException : Exception
+    public string MidiNumberToNoteSpelling(int midiNumber)
+    {
+        if (midiNumber < 0 || midiNumber > 127)
+        {
+            throw new NotAValidNoteNumberMidiException(midiNumber);
+        }
+
+        return new MidiNote(midiNumber).NoteSpelling;
+    }
+
+    private int CalculateDistance(Fingering currentFingering, Fingering newFingering)
     {        
-        public NotAValidFingeringStringException(Fingering fingering, int guitarStringsLength)
-            : base("Not a valid Fingering. (String out of range)")
-        {
-            Source = "GuitarNeck";
-            Data.Add("String", fingering.StringNumber);
-            Data.Add("StringRange: ", $"1 - {guitarStringsLength}");
-        }        
+        int strDif = Math.Abs(currentFingering.StringIndex - newFingering.StringIndex);
+        int fretDif = Math.Abs(currentFingering.FretNumber - newFingering.FretNumber);
+        return strDif + fretDif;
     }
 
-    public class NotAValidFingeringFretException : Exception 
-    {
-        public NotAValidFingeringFretException(Fingering fingering, int guitarStringsFretCount)
-        {
-            Exception ex = new Exception("Not a valid Fingering. (Fret out of range)")
-            {
-                Source = "GuitarNeck"
-            };
-            ex.Data.Add("Fret", fingering.FretNumber);
-            ex.Data.Add("FretRange: ", $"0 - {guitarStringsFretCount}");
-        }       
-    }
-
-    public class NotAValidNoteNumberMidiException : Exception 
-    {
-        public NotAValidNoteNumberMidiException(int noteNumber)
-        {
-            Exception ex = new Exception("Not a valid Note Number in Midi.")
-            {
-                Source = "GuitarNeck"
-            };
-            ex.Data.Add("NoteNumber", noteNumber);
-            ex.Data.Add("NoteNumberRange: ", "0 - 127");
-        }       
-    }
-
-    public class NotAValidNoteNumberStringConfigException : Exception 
-    {
-        public NotAValidNoteNumberStringConfigException(int noteNumber, int stringNumber, int minPlayableNoteNumber, int maxPlayableNoteNumber)
-        {
-            Exception ex = new Exception("Not a valid Note Number in String Configuration.")
-            {
-                Source = "GuitarNeck"
-            };
-            ex.Data.Add("NoteNumber", noteNumber);
-            ex.Data.Add("StringNumber", stringNumber);
-            ex.Data.Add("NoteNumberRange: ", $"{minPlayableNoteNumber} - {maxPlayableNoteNumber}");
-        }        
-    }
 }
 
+public class NotAValidFingeringStringException : Exception
+{
+    public NotAValidFingeringStringException(Fingering fingering, int maxStrings)            
+        : base($"Invalid string index {fingering.StringIndex}. Must be between 0 and {maxStrings - 1}.") { }
 
+}
 
+public class NotAValidFingeringFretException : Exception
+{
+    public NotAValidFingeringFretException(Fingering fingering, int maxFrets)            
+        : base($"Invalid fret number {fingering.FretNumber}. Must be between 0 and {maxFrets}.") { }
+}
 
+public class NotAValidNoteNumberMidiException : Exception
+{
+    public NotAValidNoteNumberMidiException(int midiNumber)       
+        : base($"Invalid MIDI note number {midiNumber}. Must be between 0 and 127.") { }
+}

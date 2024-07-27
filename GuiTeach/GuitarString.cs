@@ -1,35 +1,18 @@
-namespace GuiTeach;
-
-public class GuitarString
+namespace GuiTeach
 {
-    public int StringNumber { get; }    
-    public GuitarFret[] Frets { get; }
-    public int NumberOfFrets => Frets.Length - 1;
-    public string OpenNoteSpelling => Frets[0].Note.NoteSpelling;
+    public class GuitarString
+    {
+        // Properties
+        public int StringIndex { get; }    
+        public GuitarFret[] Frets { get; }
+        public int NumberOfFrets => Frets.Length - 1;
+        public string OpenNoteSpelling => Frets[0].Note.NoteSpelling;
+        public int StringNumber => StringIndex + 1;
 
-    // Overloaded constructors
-    public GuitarString(int midiNumber, int stringNumber, int numberOfFrets)
-    {       
-        StringNumber = stringNumber;
-
-        try 
-        {
-            Frets = new GuitarFret[numberOfFrets + 1];
-            Frets[0] = new GuitarFret(midiNumber);
-            for (var i = 1; i < numberOfFrets + 1; i++)
-            {
-                Frets[i] = new GuitarFret(midiNumber + i);
-            }
-
-        } catch (Exception e) {
-            var msg = "MidiNumber + NumberOfFrets exceeds 129: " + e.Message;
-            Console.WriteLine(msg);
-            throw new Exception(msg);
-        }        
-    }    
-    public GuitarString(int midiNumber, int numberOfFrets)
-    {       
-            StringNumber = 1;
+        // Overloaded constructors
+        public GuitarString(int midiNumber, int stringIndex, int numberOfFrets)
+        {       
+            StringIndex = stringIndex;
 
             try 
             {
@@ -45,30 +28,55 @@ public class GuitarString
                 Console.WriteLine(msg);
                 throw new Exception(msg);
             }        
-    }    
-    public GuitarString(int midiNumber)
-    {       
-        StringNumber = 1;        
-        var numberOfFrets = 24;
+        }    
+        public GuitarString(int midiNumber, int numberOfFrets)
+        {       
+            StringIndex = 0;
 
-        try 
-        {
-            Frets = new GuitarFret[numberOfFrets + 1];
-            Frets[0] = new GuitarFret(midiNumber);
-            for (var i = 1; i < numberOfFrets + 1; i++)
+            try 
             {
-                Frets[i] = new GuitarFret(midiNumber + i);
-            }
+                Frets = new GuitarFret[numberOfFrets + 1];
+                Frets[0] = new GuitarFret(midiNumber);
+                for (var i = 1; i < numberOfFrets + 1; i++)
+                {
+                    Frets[i] = new GuitarFret(midiNumber + i);
+                }
 
-        } catch (Exception e) {
-            var msg = "MidiNumber + NumberOfFrets exceeds 129: " + e.Message;
-            Console.WriteLine(msg);
-            throw new Exception(msg);
-        }        
-    }    
+            } catch (Exception e) {
+                var msg = "MidiNumber + NumberOfFrets exceeds 129: " + e.Message;
+                Console.WriteLine(msg);
+                throw new Exception(msg);
+            }        
+        }    
+        public GuitarString(int midiNumber)
+        {       
+            StringIndex = 0;        
+            var numberOfFrets = 24;
 
-    public string StringOrdinal()
-    {
-        return Utility.Get_Ordinal(StringNumber);
+            try 
+            {
+                Frets = new GuitarFret[numberOfFrets + 1];
+                Frets[0] = new GuitarFret(midiNumber);
+                for (var i = 1; i < numberOfFrets + 1; i++)
+                {
+                    Frets[i] = new GuitarFret(midiNumber + i);
+                }
+
+            } catch (Exception e) {
+                var msg = "MidiNumber + NumberOfFrets exceeds 129: " + e.Message;
+                Console.WriteLine(msg);
+                throw new Exception(msg);
+            }        
+        }    
+
+        /// <summary>
+        /// Returns the string number as an ordinal string.
+        /// will never return "0th".
+        /// </summary>
+        /// <returns></returns>
+        public string StringOrdinal()
+        {
+            return StringNumber.ToOrdinal();
+        }
     }
 }
