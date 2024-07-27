@@ -66,4 +66,9 @@ public class GuitarString
             throw new Exception(msg);
         }        
     }    
+
+    public string StringOrdinal()
+    {
+        return Utility.Get_Ordinal(StringNumber);
+    }
 }

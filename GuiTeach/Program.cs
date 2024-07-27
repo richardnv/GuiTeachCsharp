@@ -22,7 +22,9 @@ while (true)
     var newFingering = new Fingering(1, 0);
     try {
         newFingering = guitarNeck.FindClosestFingering(midiNumber, curFingering);
-        Console.WriteLine($"The closest string and fret where this note can be played on a std tuning guitar at String: {newFingering.String}, Fret: {newFingering.Fret}.");
+        Console.WriteLine($"The closest string and fret where this note can be ");
+        Console.WriteLine($"played on a std tuning guitar on the ");
+        Console.WriteLine($"{newFingering.StringNumber}, Fret: {newFingering.FretNumber}.");
     } catch (Exception e) {
         Console.WriteLine(e.Message);            
     }

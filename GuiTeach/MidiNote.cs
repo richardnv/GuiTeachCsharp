@@ -1,6 +1,6 @@
 namespace GuiTeach;
 
-public class MidiNote
+public class MidiNote : IEquatable<MidiNote>
 {
     public int MidiNumber { get; }
     public string NoteName { get; }
@@ -25,19 +25,18 @@ public class MidiNote
         return (midiNumber / 12) - 1;
     }
 
-    public override bool Equals(object? obj)
+    public override int GetHashCode()
     {
-        if (obj == null || GetType() != obj.GetType())
+        return HashCode.Combine(MidiNumber, NoteName, Octave);
+    }
+
+    public bool Equals(MidiNote? other)
+    {
+        if (other == null)
         {
             return false;
         }
 
-        var other = (MidiNote)obj;
         return MidiNumber == other.MidiNumber;
-    }    
-
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(MidiNumber, NoteName, Octave);
     }
 }

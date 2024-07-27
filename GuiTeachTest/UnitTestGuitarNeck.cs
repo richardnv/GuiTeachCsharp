@@ -148,4 +148,29 @@ public class UnitTestGuitarNeck
         Assert.Throws<GuitarNeck.NotAValidFingeringFretException>(() => guitarNeck.FindClosestFingering(40, new Fingering(1,-1)));      
         Assert.Throws<GuitarNeck.NotAValidFingeringFretException>(() => guitarNeck.FindClosestFingering(40, new Fingering(1,45)));      
     }
+
+    [Fact]
+    public void Test_Fingering_StringOrdinal()
+    {
+        var fingering = new Fingering(1,0);
+        Assert.Equal("1st", fingering.StringOrdinal());
+        fingering = new Fingering(2,0);
+        Assert.Equal("2nd", fingering.StringOrdinal());
+        fingering = new Fingering(3,0);
+        Assert.Equal("3rd", fingering.StringOrdinal());
+        fingering = new Fingering(4,0);
+        Assert.Equal("4th", fingering.StringOrdinal());
+        fingering = new Fingering(5,0);
+        Assert.Equal("5th", fingering.StringOrdinal());
+        fingering = new Fingering(11,0);
+        Assert.Equal("11th", fingering.StringOrdinal());
+        fingering = new Fingering(21,0);
+        Assert.Equal("21st", fingering.StringOrdinal());        
+        fingering = new Fingering(32,0);
+        Assert.Equal("32nd", fingering.StringOrdinal());        
+        fingering = new Fingering(123,0);
+        Assert.Equal("123rd", fingering.StringOrdinal());
+        fingering = new Fingering(84,0);
+        Assert.Equal("84th", fingering.StringOrdinal());
+    }
 }

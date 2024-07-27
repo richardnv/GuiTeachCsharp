@@ -1,29 +1,39 @@
-namespace GuiTeach;
-public class Fingering
-{
-    public int String { get; }
+using System.ComponentModel;
 
-    public int Fret { get; }
+namespace GuiTeach;
+public class Fingering : IEquatable<Fingering>
+{
+    public int StringNumber { get; }
+    public int FretNumber { get; }
 
     public Fingering(int? stringNumber = 1, int? fretNumber = 0)
     {
-        String = stringNumber ?? 1;
-        Fret = fretNumber ?? 0;
+        StringNumber = stringNumber ?? 1;
+        FretNumber = fretNumber ?? 0;
     }
 
-    public override bool Equals(object? obj)
+    public string StringOrdinal()
     {
-        if (obj == null || GetType() != obj.GetType())
-        {
-            return false;
-        }
+        return Utility.Get_Ordinal(StringNumber);        
+    }
 
-        Fingering other = (Fingering)obj;
-        return Fret == other.Fret && String == other.String;
+    public string FretOrdeinal()
+    {
+        return Utility.Get_Ordinal(FretNumber);
     }
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(Fret, String);
+        return HashCode.Combine(FretNumber, StringNumber);
+    }
+
+    public bool Equals(Fingering? other)
+    {
+        if (other == null)
+        {
+            return false;
+        }
+
+        return FretNumber == other.FretNumber && StringNumber == other.StringNumber;
     }
 }
