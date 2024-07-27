@@ -114,10 +114,10 @@ public class GuitarNeck
     /// <exception cref="NotAValidFingeringFretException">Thrown when the fret number is invalid.</exception>
     public MidiNote FingeringToMidiNote(Fingering fingering)
     {
-        const int MinIndex = 0;
+        const int MinStringIndex = 0;
         const int MinFretNumber = 0;
 
-        if (fingering.StringIndex < MinIndex || fingering.StringIndex >= guitarStrings.Length - 1)
+        if (fingering.StringIndex < MinStringIndex || fingering.StringIndex >= guitarStrings.Length)
         {
             throw new NotAValidFingeringStringException(fingering, guitarStrings.Length);
         }
