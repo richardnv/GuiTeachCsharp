@@ -19,3 +19,12 @@ Taking into consideration:
   5. Chords are going to be a bitch.
   6. Midi player will have to read ahead to have the info needed to calculate the best not.....
 Well as of now I have the rudaments of a way to display this all on a web page useing a programaticly created SVG that is animated by JavaScript.
+
+Standard 6 string with 24 frets.
+![image](https://github.com/user-attachments/assets/9494d8ca-a8c9-4015-843b-137100eaf4ea)
+
+zoomed in, less frets are visible.
+![image](https://github.com/user-attachments/assets/0ecf230f-5033-4b26-840f-641852de95e3)
+
+How about an 11 string guitar?
+![image](https://github.com/user-attachments/assets/d0dffe74-14bb-4d22-b7f0-001a37c8a14a)
