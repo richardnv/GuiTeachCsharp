@@ -1,5 +1,28 @@
 GuiTeach is a study in two of my loves. Playing Guitar and Writing Code that does interesting things.
 
+The stack for this project:
+  **Frontend Technologies:**
+    HTML: The structure of the web page.
+    CSS: Styling of the web page.
+    JavaScript: Client-side scripting for dynamic behavior, including the creation and manipulation of SVG elements.
+    
+  **JavaScript Libraries/Frameworks:**
+  
+  **SVG (Scalable Vector Graphics):** Used for rendering the guitar neck and its components.
+  
+  **Development Tools:**
+    Visual Studio Code: The integrated development environment (IDE) being used for coding.
+    Git: Version control system for tracking changes in the source code.
+  
+  **Backend Technologies (if applicable):**
+    Node.js: If there is any server-side logic, it might be handled by Node.js.
+    Express.js: A web application framework for Node.js, if applicable.
+  Version Control:
+    GitHub: For source code management and collaboration.
+
+  Operating System:
+    Windows: The operating system on which the development is being done.
+
 I have always kicked around the idea that there must be a way to determine the best place on the guitar neck to play a given note.
 Seems simple right? 
   What if the note I am currently fingering  is the C on the A String at Fret 3 (Note spelling of C3 / C natural in the 3rd octave / midi note 48) 
