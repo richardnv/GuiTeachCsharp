@@ -6,9 +6,9 @@ Seems simple right?
 and the next note I want to play is the A2 (midi note 45) which can be played on the open A string (same string I'm already on.)  
 Still Easy Right?
   But what if the next note is a bend to A#2 (midi note 46). Kinda weird to bend an open string, can be done but 
-it would be totaly easy to play the A2 on String 1 Fret 5 and then bend it to A#2.
+it would be totally easy to play the A2 on String 1 Fret 5 and then bend it to A#2.
 
-So you see that the best place to play a note is dependant on what came before and what is comming up.
+So you see that the best place to play a note is dependant on what came before and what is coming up.
 
 Well, I want to load a midi file, select a track and see how it can be played in real time. 
 Taking into consideration: 
@@ -18,7 +18,7 @@ Taking into consideration:
   4. Number of fingers currently in use and where.
   5. Chords are going to be a bitch.
   6. Midi player will have to read ahead to have the info needed to calculate the best note.
-Well as of now I have the rudaments of a way to display this all on a web page using a programaticly created SVG that is animated by JavaScript.
+Well as of now I have the rudiments of a way to display this all on a web page using a programmatically created SVG that is animated by JavaScript.
 
 Standard 6 string with 24 frets.
 ![image](https://github.com/user-attachments/assets/9494d8ca-a8c9-4015-843b-137100eaf4ea)
