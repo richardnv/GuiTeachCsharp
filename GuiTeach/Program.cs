@@ -19,9 +19,8 @@ while (true)
     Console.WriteLine($"The note spelling for that midi number {midiNumber} is {guitarNeck.MidiNumberToNoteSpelling(midiNumber)}.");
 
     var curFingering = new Fingering(1, 0);
-    var newFingering = new Fingering(1, 0);
     try {
-        newFingering = guitarNeck.FindClosestFingering(midiNumber, curFingering);
+        var newFingering = guitarNeck.FindClosestFingering(midiNumber, curFingering);
         Console.WriteLine($"The closest string and fret where this note can be ");
         Console.WriteLine($"played on a std tuning guitar on the ");
         Console.WriteLine($"{newFingering.StringNumber}, Fret: {newFingering.FretNumber}.");
